@@ -6,7 +6,8 @@ export type TipoJuego =
   | 'cazador_silabas'
   | 'palabras_gemelas'
   | 'intruso_rimas'
-  | 'conductor_texto';
+  | 'conductor_texto'
+  | 'memotest';
 
 export interface PalabraConSilabas {
   palabra: string;
@@ -56,11 +57,24 @@ export interface ConfigConductorTexto {
   minAciertos: number;
 }
 
+export interface CartaMemotest {
+  id: string;
+  contenido: string;
+  pairId: string;
+  imagenUrl?: string;
+}
+
+export interface ConfigMemotest {
+  tipo: 'memotest';
+  cartas: CartaMemotest[];
+}
+
 export type ConfiguracionJuego =
   | ConfigCazadorSilabas
   | ConfigPalabrasGemelas
   | ConfigIntrusoRimas
-  | ConfigConductorTexto;
+  | ConfigConductorTexto
+  | ConfigMemotest;
 
 export interface Nivel {
   id: string;
