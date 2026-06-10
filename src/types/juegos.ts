@@ -7,7 +7,8 @@ export type TipoJuego =
   | 'palabras_gemelas'
   | 'intruso_rimas'
   | 'conductor_texto'
-  | 'memotest';
+  | 'memotest'
+  | 'carrera_lectura';
 
 export interface PalabraConSilabas {
   palabra: string;
@@ -67,6 +68,15 @@ export interface CartaMemotest {
 export interface ConfigMemotest {
   tipo: 'memotest';
   cartas: CartaMemotest[];
+  // = cantidad de parejas; la partida se gana al encontrarlas todas
+  minAciertos: number;
+}
+
+export interface ConfigCarreraLectura {
+  tipo: 'carrera_lectura';
+  palabras: string[];
+  segundosPorPalabra: number;
+  minAciertos: number;
 }
 
 export type ConfiguracionJuego =
@@ -74,7 +84,8 @@ export type ConfiguracionJuego =
   | ConfigPalabrasGemelas
   | ConfigIntrusoRimas
   | ConfigConductorTexto
-  | ConfigMemotest;
+  | ConfigMemotest
+  | ConfigCarreraLectura;
 
 export interface Nivel {
   id: string;
